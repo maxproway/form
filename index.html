@@ -6,5 +6,93 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Form</title>
     </head>
-    <body></body>
+    <body>
+        <div class="wrapper">
+            <div class="form">
+                <form class="form__body" id="form" action="#">
+                    <h1 class="form__title">Email Form</h1>
+                    <div class="form__item">
+                        <label class="form__label" for="formName">Name*:</label>
+                        <input class="form__input" id="formName" name="name" type="text" />
+                    </div>
+
+                    <div class="form__item">
+                        <label class="form__label" for="formEmail">E-mail*:</label>
+                        <input class="form__input" id="formEmail" name="email" type="email" />
+                    </div>
+
+                    <div class="form__item">
+                        <label class="form__label">What do you prefer?</label>
+                        <div class="options">
+                            <div class="options__item">
+                                <input
+                                    class="options__input"
+                                    id="formCoke"
+                                    name="drink"
+                                    type="radio"
+                                    value="coke"
+                                    checked
+                                />
+                                <label class="options__label" for="formCoke">Coke</label>
+                            </div>
+                            <div class="options__item">
+                                <input class="options__input" id="formPepsi" name="drink" type="radio" value="pepsi" />
+                                <label class="options__label" for="formPepsi">Pepsi</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form__item">
+                        <label class="form__label" for="formMessage">Message:</label>
+                        <textarea class="form__input" id="formMessage" name="message"></textarea>
+                    </div>
+
+                    <div class="form__item">
+                        <label class="form__label" for="formSelect">Country:</label>
+                        <select class="form__select" id="formSelect" name="country">
+                            <option value="Australia">Australia</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United States" selected="selected">United States</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                        </select>
+                    </div>
+
+                    <div class="form__item">
+                        <label class="form__label" for="formImage">Picture:</label>
+                        <div class="file">
+                            <div class="file__item">
+                                <input
+                                    class="form__input"
+                                    id="formImage"
+                                    name="image"
+                                    type="file"
+                                    accept=".jpg, .png, .gif"
+                                />
+                                <div class="file__btn">Choose</div>
+                            </div>
+                            <div class="file__preview"></div>
+                        </div>
+                    </div>
+
+                    <div class="form__item">
+                        <div class="checkbox">
+                            <input
+                                class="checkbox__input"
+                                id="formAgreement"
+                                type="checkbox"
+                                name="agreement"
+                                checked
+                            />
+                            <label class="checkbox__label" for="formAgreement"
+                                >I agree with <a href="">terms and conditions</a></label
+                            >
+                        </div>
+                    </div>
+
+                    <button class="form__btn" type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>
