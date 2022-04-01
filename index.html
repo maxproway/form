@@ -15,12 +15,12 @@
                     <h1 class="form__title">Ticket Form</h1>
                     <div class="form__item">
                         <label class="form__label" for="formName">Name*:</label>
-                        <input class="form__input" id="formName" name="name" type="text" />
+                        <input class="form__input _req" id="formName" name="name" type="text" />
                     </div>
 
                     <div class="form__item">
                         <label class="form__label" for="formEmail">E-mail*:</label>
-                        <input class="form__input" id="formEmail" name="email" type="email" />
+                        <input class="form__input _email _req" id="formEmail" name="email" type="email" />
                     </div>
 
                     <div class="form__item">
@@ -79,14 +79,14 @@
                                 />
                                 <div class="file__btn">Choose File</div>
                             </div>
-                            <div class="file__preview"></div>
+                            <div class="file__preview" id="filePreview"></div>
                         </div>
                     </div>
 
                     <div class="form__item">
                         <div class="checkbox">
                             <input
-                                class="checkbox__input"
+                                class="checkbox__input _req"
                                 id="formAgreement"
                                 type="checkbox"
                                 name="agreement"
