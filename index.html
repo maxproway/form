@@ -4,13 +4,15 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/select.css" />
+        <link rel="stylesheet" href="/style.css" />
         <title>Form</title>
     </head>
     <body>
         <div class="wrapper">
             <div class="form">
                 <form class="form__body" id="form" action="#">
-                    <h1 class="form__title">Email Form</h1>
+                    <h1 class="form__title">Ticket Form</h1>
                     <div class="form__item">
                         <label class="form__label" for="formName">Name*:</label>
                         <input class="form__input" id="formName" name="name" type="text" />
@@ -22,24 +24,41 @@
                     </div>
 
                     <div class="form__item">
-                        <label class="form__label">What do you prefer?</label>
-                        <div class="options">
-                            <div class="options__item">
+                        <div class="radio__title">Importance of Request ?</div>
+                        <div class="radio">
+                            <div class="radio__item">
                                 <input
-                                    class="options__input"
-                                    id="formCoke"
-                                    name="drink"
+                                    class="radio__input"
+                                    id="formRoutine"
+                                    name="importance"
                                     type="radio"
-                                    value="coke"
+                                    value="routine"
                                     checked
                                 />
-                                <label class="options__label" for="formCoke">Coke</label>
+                                <label class="radio__label" for="formRoutine">Routine</label>
                             </div>
-                            <div class="options__item">
-                                <input class="options__input" id="formPepsi" name="drink" type="radio" value="pepsi" />
-                                <label class="options__label" for="formPepsi">Pepsi</label>
+                            <div class="radio__item">
+                                <input
+                                    class="radio__input"
+                                    id="formUrgent"
+                                    name="importance"
+                                    type="radio"
+                                    value="urgent"
+                                />
+                                <label class="radio__label" for="formUrgent">Urgent</label>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="form__item">
+                        <label class="form__label" for="formSelect">Department:</label>
+                        <select class="form__select" id="formSelect" name="country">
+                            <option value="sales" selected="selected">Sales</option>
+                            <option value="domains">Domains Support</option>
+                            <option value="hosting">Hosting Support</option>
+                            <option value="marketing">Marketing Team</option>
+                            <option value="email">Email Support</option>
+                        </select>
                     </div>
 
                     <div class="form__item">
@@ -48,28 +67,17 @@
                     </div>
 
                     <div class="form__item">
-                        <label class="form__label" for="formSelect">Country:</label>
-                        <select class="form__select" id="formSelect" name="country">
-                            <option value="Australia">Australia</option>
-                            <option value="Canada">Canada</option>
-                            <option value="Ukraine">Ukraine</option>
-                            <option value="United States" selected="selected">United States</option>
-                            <option value="United Kingdom">United Kingdom</option>
-                        </select>
-                    </div>
-
-                    <div class="form__item">
-                        <label class="form__label" for="formImage">Picture:</label>
+                        <label class="form__label" for="formImage">Screenshot:</label>
                         <div class="file">
                             <div class="file__item">
                                 <input
-                                    class="form__input"
+                                    class="file__input"
                                     id="formImage"
                                     name="image"
                                     type="file"
                                     accept=".jpg, .png, .gif"
                                 />
-                                <div class="file__btn">Choose</div>
+                                <div class="file__btn">Choose File</div>
                             </div>
                             <div class="file__preview"></div>
                         </div>
@@ -85,7 +93,7 @@
                                 checked
                             />
                             <label class="checkbox__label" for="formAgreement"
-                                >I agree with <a href="">terms and conditions</a></label
+                                ><span>I agree with <a href="">terms and conditions</a></span></label
                             >
                         </div>
                     </div>
@@ -94,5 +102,8 @@
                 </form>
             </div>
         </div>
+        <script src="/select.js"></script>
+        <script src="/script.js"></script>
     </body>
 </html>
+z
