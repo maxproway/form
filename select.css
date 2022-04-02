@@ -32,7 +32,7 @@
     transition: all 0.3s ease 0s;
     width: 11px;
     height: 7px;
-    background: url("../img/select.svg") center / 100% no-repeat;
+    background: url("./img/select.svg") center / 100% no-repeat;
 }
 .select__options {
     color: #000;
