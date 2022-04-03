@@ -47,7 +47,7 @@
 
     $mail->Body = $body;
 
-    if(!mail->send()){
+    if(!$mail->send()){
         $message = 'Error';
     } else {
         $message = 'Form has been sent';
