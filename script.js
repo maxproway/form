@@ -17,8 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 method: "POST",
                 body: formData,
             });
+            console.log(response.ok);
             if (response.ok) {
                 let result = await response.json();
+                console.log(result);
                 alert(result.message);
                 filePreview.innerHTML = "";
                 form.reset();
