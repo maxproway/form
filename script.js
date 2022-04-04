@@ -9,24 +9,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let formData = new FormData(form);
         formData.append("image", formImage.files[0]);
-        console.log(error);
-
         if (error === 0) {
             form.classList.add("_sending");
             let response = await fetch("sendmail.php", {
                 method: "POST",
                 body: formData,
             });
-            console.log(response.ok);
             if (response.ok) {
                 let result = await response.json();
-                console.log(result);
                 alert(result.message);
                 filePreview.innerHTML = "";
                 form.reset();
                 form.classList.remove("_sending");
             } else {
-                alert("Something went wrong. Form was NOT send :(");
+                // let result = await response.json();
+                // alert(result.message);
+                alert("Form was not send. This is the test form with no real data sending. Thank you.");
                 form.classList.remove("_sending");
             }
         } else {
