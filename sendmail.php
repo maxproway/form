@@ -62,17 +62,43 @@
         $body .= '<p><strong>Department:</strong> '.$_POST['department'].'</p>';
     }
 
-    if(!empty($_FILES['image']['tmp_name'])){
-        $filePath = __DIR__ / . '/files/' . $_FILES['image']['name']
+    if(trim(!empty($_POST['message']))){
+        $body .= '<p><strong>Message:</strong> '.$_POST['message'].'</p>';
+    }
 
-        if(copy($_FILES['image']['tmp_name'], $filePath)){
-            $fileAttach = $filePath;
-             $body .= '<p><strong>Screenshot:</strong> ';
-             $mail->addAttachment($fileAttach);
+    // attaching file
+    if(!empty($_FILES['image']['tmp_name'])){
+        if (array_key_exists('image', $_FILES)) {
+            //First handle the upload
+            //Don't trust provided filename - same goes for MIME types
+            //See http://php.net/manual/en/features.file-upload.php#114004 for more thorough upload validation
+
+            //Extract an extension from the provided filename
+            $ext = PHPMailer::mb_pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+            //Define a safe location to move the uploaded file to, preserving the extension
+            $uploadfile = tempnam(sys_get_temp_dir(), hash('sha256', $_FILES['image']['name'])) . '.' . $ext;
+
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+                //Upload handled successfully
+
+                //Attach the uploaded file
+                if (!$mail->addAttachment($uploadfile, 'My uploaded file')) {
+                    $msg = 'Failed to attach file ' . $_FILES['image']['name'];
+                    //did not figure out what to do here next. Probably do not need to email message and use exit() to stop script and sent response about failed file attaching.
+                } else{
+                    $body .= '<p><strong>Screenshot:</strong></p>';
+                }
+            } else{
+                $msg = 'Failed to move file to ' . $uploadfile;
+                //did not figure out what to do here next. Probably do not need to email message and use exit() to stop script and sent response about failed file uploading
+            }
         }
     }
 
+    // end of attaching file
+
     $mail->Body = $body;
+    // $mail->Body = $message;
 
     if(!$mail->send()){
         if ($isAjax) {
